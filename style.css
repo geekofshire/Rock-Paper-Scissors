@@ -1,0 +1,59 @@
+body{
+    background-color: pink;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.1em;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.labels{
+    margin-top: 10px;
+    display: flex;
+    font-size: smaller;
+}
+.scores{
+    display: flex;
+}
+#playerlabel{
+    margin-right: 3px;
+    margin-top: 1px;
+}
+#computerlabel{
+    margin-left: 25px;
+    margin-top: 1px;
+    padding-left: 13px;
+}
+.playerscore{
+    border:5px solid black;
+    margin-right: 13px;
+    margin-left: auto;
+    width:100px;
+    height: 25px;
+    padding: 2px;
+}
+.computerscore{
+    border:5px solid black;
+    margin-left: 3px;
+    width:100px;
+    height:25px;
+    padding: 2px;
+}
+
+.final{
+    display: flex;
+    margin-top: 25px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.winner{
+    border:5px solid black;
+    margin-right: 13px;
+    margin-left: 5px;
+    width:150px;
+    height: 25px;
+    padding: 2px;
+}
+

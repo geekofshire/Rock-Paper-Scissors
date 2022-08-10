@@ -11,11 +11,25 @@
     <body>
         <h1>Rock-Paper-Scissors</h1>
         <h2>Man vs Machine</h2>
+        <h3>First to 5 games win</h3>
         <h4>Select your choice</h4>
         <div class="choice">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissor</button>
+            <button id="Rock" style="width:100px;height:20px">Rock</button>
+            <button id="Paper" style="width:100px;height:20px">Paper</button>
+            <button id="Scissors" style="width:100px;height:20px">Scissor</button>
         </div>
+        <div class="labels">
+            <span id="playerlabel">Player Score</span>
+            <span id="computerlabel">Computer Score</span>
+        </div>
+        <div class="scores">
+            <div class="playerscore"></div>
+            <div class="computerscore"></div>
+        </div>
+        <div class="final">
+            <div class="flabel">Results<br></div>
+            <div class="winner"></div>
+        </div>
+        <button onClick="window.location.reload();"style="margin:30px;width:100px;height:20px">Play again</button>
     </body>
 </html>
