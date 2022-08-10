@@ -7,67 +7,76 @@ function getcomputerChoice(){
         else
             return "Scissors";
     }
-let playerScore=0;
-let computerScore=0;
-const choices=document.querySelector('.choice');
-while(playerScore<5||computerScore<5){
+currentPlayerScore=0;
+currentCompScore=0;
+const playerScore=document.querySelector('div.playerscore');
+const computerScore=document.querySelector('div.computerscore');
+const results=document.querySelector('div.winner');
+const choices=document.querySelectorAll('div.choice');
+choices.forEach((choicez) => { choicez.addEventListener('click',getPlayerChoice);});
+
+function playround(playerChoice){
     let computerChoice=getcomputerChoice();
-    
+    if(playerChoice=="Rock"){
+        if(computerChoice=="Scissors") {
+                results.textContent="You win";
+                playerScore.textContent=++currentPlayerScore;
+            }
+        else if(computerChoice=="Paper"){
+            results.textContent="Computer Wins";
+            computerScore.textContent=++currentCompScore;
+        }
+        else if(computerChoice=="Rock"){
+            results.textContent="Tie";
+            playerScore.textContent=++currentPlayerScore;
+            computerScore.textContent=++currentCompScore;
+        }
+    }
+    else if(playerChoice=="Paper"){
+        if(computerChoice=="Rock"){
+            results.textContent="You win";
+            playerScore.textContent=++currentPlayerScore;
+        }
+        else if(computerChoice="Scissors"){
+            results.textContent="Computer Wins";
+            computerScore.textContent=++currentCompScore;
+        }
+        else if(computerChoice=="Paper"){
+            results.textContent="Tie";
+            playerScore.textContent=++currentPlayerScore;
+            computerScore.textContent=++currentCompScore;
+        }
+    }
+    else if(playerChoice=="Scissors"){
+        if(computerChoice=="Paper"){
+            results.textContent="You win";
+            playerScore.textContent=++currentPlayerScore;
+        }
+        else if(computerChoice=="Rock"){
+            results.textContent="Computer Wins";
+            computerScore.textContent=++currentCompScore;
+        }
+        else if(computerChoice=="Scissors"){
+            results.textContent="Tie";
+            playerScore.textContent=++currentPlayerScore;
+            computerScore.textContent=++currentCompScore;
+        }
+    }
+    if(currentCompScore==5||currentPlayerScore==5){
+        if(currentCompScore==currentPlayerScore){
+            results.textContent="Final:Tie";
+        }
+        else if(currentCompScore>currentPlayerScore)
+            results.textContent='Final:Computer Wins';
+        else
+            results.textContent='Final:You Win';
+        choices.forEach((choicez) => { choicez.removeEventListener('click',getPlayerChoice);});   
+    }
+}
+function getPlayerChoice(e){
+    let playerSelection=(e.target.id);
+    playround(playerSelection);
 }
 
 
 
-
-
-
-
-// function getcomputerChoice(){
-//     let x=Math.ceil(Math.random()*3)
-//     if(x==1)
-//         return "Rock";
-//     else if(x==2)
-//         return "Paper";
-//     else
-//         return "Scissors";
-// }
-// function converPlayerChoice(x){
-//     if(x==1)
-//         return "Rock";
-//     else if(x==2)
-//         return "Paper";
-//     else
-//         return "Scissors";
-// }
-// //let me= prompt("tell me your name: ");
-// for(let i=0;i<5;i++){
-//     let oldplayerChoice= prompt("Enter your choice: ");//rock paper scissors
-//     let playerChoice=converPlayerChoice(oldplayerChoice);
-//     let computerChoice= getcomputerChoice();
-//     console.log(playerChoice);
-//     console.log(computerChoice);
-//     if(playerChoice=="Rock"){
-//         if(computerChoice=="Scissors")
-//             console.log("You win");
-//         else if(computerChoice=="Paper")
-//             console.log("Computer Wins");
-//         else if(computerChoice=="Rock")
-//             console.log("Draw");
-//     }
-//     else if(playerChoice=="Paper"){
-//         if(computerChoice=="Rock")
-//             console.log("You win");
-//         else if(computerChoice="Scissors")
-//             console.log("Computer Wins");
-//         else if(computerChoice=="Paper")
-//             console.log("Draw");
-//     }
-//     else if(playerChoice=="Scissors"){
-//         if(computerChoice=="Paper")
-//             console.log("You win");
-//         else if(computerChoice=="Rock")
-//             console.log("Computer Wins");
-//         else if(computerChoice=="Scissors")
-//             console.log("Draw");
-//     }
-// }
-// console.log("game Over");
